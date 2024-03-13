@@ -5,7 +5,11 @@
     /// </summary>
     public static class MatrixConsole
     {
+<<<<<<< HEAD
         public static void PrintSystem(Matrix matrix, double[] bVector)
+=======
+        public static void PrintSystem(Matrix matrix, float[] bVector)
+>>>>>>> double изменен на float
         {
             for (int i = 0; i < matrix.Rows; i++)
             {
@@ -18,7 +22,11 @@
             }
         }
 
+<<<<<<< HEAD
         public static void EnterSystem(out Matrix matrix, out double[] bVector)
+=======
+        public static void EnterSystem(out Matrix matrix, out float[] bVector)
+>>>>>>> double изменен на float
         {
             string? str;
             Console.WriteLine("Введите размерность матрицы: ");
@@ -46,7 +54,11 @@
             }
         }
 
+<<<<<<< HEAD
         public static void WriteB(double[] bVector)
+=======
+        public static void WriteB(float[] bVector)
+>>>>>>> double изменен на float
         {
             foreach (var b in bVector)
                 Console.Write($"{b} ");
@@ -76,7 +88,11 @@
                 }
                 for (int j = 0; j < size; j++)
                 {
+<<<<<<< HEAD
                     if (double.TryParse(row[j], out double res))
+=======
+                    if (float.TryParse(row[j], out float res))
+>>>>>>> double изменен на float
                     {
                         newMatrix[i, j] = res;
                     }
@@ -91,9 +107,15 @@
             return newMatrix;
         }
 
+<<<<<<< HEAD
         public static double[] EnterB(int rows)
         {
             double[] bVector = new double[rows];
+=======
+        public static float[] EnterB(int rows)
+        {
+            float[] bVector = new float[rows];
+>>>>>>> double изменен на float
             string? str;
             string[] values;
             bool flag;
@@ -117,7 +139,11 @@
                 }
                 for (int i = 0; i < rows; i++)
                 {
+<<<<<<< HEAD
                     if (double.TryParse(values[i], out double res))
+=======
+                    if (float.TryParse(values[i], out float res))
+>>>>>>> double изменен на float
                         bVector[i] = res;
                     else
                     {
