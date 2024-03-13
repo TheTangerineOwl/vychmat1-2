@@ -17,11 +17,7 @@
                 if (!IsSquare(matrix)) return false;
                 for (int i = 0; i < matrix.Rows; i++)
                     for (int j = 0; j < i - 1; j++)
-<<<<<<< HEAD
-                        if (matrix[i, j] != 0.0 || matrix[j, i] != 0.0) return false;
-=======
                         if (matrix[i, j] != 0.0f || matrix[j, i] != 0.0f) return false;
->>>>>>> double изменен на float
                 return true;
             }
         }
@@ -33,33 +29,19 @@
                 if (!IsSquare(matrix)) return false;
                 for (int i = 0; i < matrix.Rows; i++)
                     for (int j = 0; j < i; j++)
-<<<<<<< HEAD
-                        if (matrix[i, j] != 0.0) return false;
-                return true;
-            }
-
-            /*public static (Matrix, double[]) ToTriangular(Matrix matrix, double[] bVector)
-=======
                         if (matrix[i, j] != 0.0f) return false;
                 return true;
             }
 
             /*public static (Matrix, float[]) ToTriangular(Matrix matrix, float[] bVector)
->>>>>>> double изменен на float
             {
                 Matrix res = (Matrix)matrix.Clone();
                 if (matrix.Rows != matrix.Columns) throw new ArgumentException("Некорректная система!");
                 if (IsTriangular(matrix)) return (res, bVector);
                 //for (int k = 0; k < res.Rows; k++)
-<<<<<<< HEAD
-                if (res[0, 0] == 0.0)
-                {
-                    //if (res[k, k] == 0.0)
-=======
                 if (res[0, 0] == 0.0f)
                 {
                     //if (res[k, k] == 0.0f)
->>>>>>> double изменен на float
                     {
                         for (int n = 0; n < res.Columns; n++)
                             (res[0, n], res[0 + 1, n]) = (res[0 + 1, n], res[0, n]);
@@ -70,11 +52,7 @@
                 for (int k = 0; k < res.Rows; k++)
                     for (int i = k + 1; i < res.Rows; i++)
                     {
-<<<<<<< HEAD
-                        double buf = res[i, k];
-=======
                         float buf = res[i, k];
->>>>>>> double изменен на float
                         for (int j = k; j < res.Columns; j++)
                         {
                             res[i, j] -= res[k, j] * (buf / res[k, k]);
