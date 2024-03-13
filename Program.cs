@@ -1,4 +1,3 @@
-﻿
 
 namespace vychmat1_2
 {
