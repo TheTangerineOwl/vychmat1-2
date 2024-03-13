@@ -5,7 +5,7 @@
     /// </summary>
     public static class MatrixConsole
     {
-        public static void PrintSystem(Matrix matrix, double[] bVector)
+        public static void PrintSystem(Matrix matrix, float[] bVector)
         {
             for (int i = 0; i < matrix.Rows; i++)
             {
@@ -18,7 +18,7 @@
             }
         }
 
-        public static void EnterSystem(out Matrix matrix, out double[] bVector)
+        public static void EnterSystem(out Matrix matrix, out float[] bVector)
         {
             string? str;
             Console.WriteLine("Введите размерность матрицы: ");
@@ -46,7 +46,7 @@
             }
         }
 
-        public static void WriteB(double[] bVector)
+        public static void WriteB(float[] bVector)
         {
             foreach (var b in bVector)
                 Console.Write($"{b} ");
@@ -76,7 +76,7 @@
                 }
                 for (int j = 0; j < size; j++)
                 {
-                    if (double.TryParse(row[j], out double res))
+                    if (float.TryParse(row[j], out float res))
                     {
                         newMatrix[i, j] = res;
                     }
@@ -91,9 +91,9 @@
             return newMatrix;
         }
 
-        public static double[] EnterB(int rows)
+        public static float[] EnterB(int rows)
         {
-            double[] bVector = new double[rows];
+            float[] bVector = new float[rows];
             string? str;
             string[] values;
             bool flag;
@@ -117,7 +117,7 @@
                 }
                 for (int i = 0; i < rows; i++)
                 {
-                    if (double.TryParse(values[i], out double res))
+                    if (float.TryParse(values[i], out float res))
                         bVector[i] = res;
                     else
                     {

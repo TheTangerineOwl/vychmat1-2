@@ -33,7 +33,7 @@
                 return true;
             }
 
-            /*public static (Matrix, double[]) ToTriangular(Matrix matrix, double[] bVector)
+            /*public static (Matrix, float[]) ToTriangular(Matrix matrix, float[] bVector)
             {
                 Matrix res = (Matrix)matrix.Clone();
                 if (matrix.Rows != matrix.Columns) throw new ArgumentException("Некорректная система!");
@@ -52,7 +52,7 @@
                 for (int k = 0; k < res.Rows; k++)
                     for (int i = k + 1; i < res.Rows; i++)
                     {
-                        double buf = res[i, k];
+                        float buf = res[i, k];
                         for (int j = k; j < res.Columns; j++)
                         {
                             res[i, j] -= res[k, j] * (buf / res[k, k]);

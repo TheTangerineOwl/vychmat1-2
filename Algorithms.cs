@@ -5,16 +5,16 @@
     /// </summary>
     public static class Algorithms
     {
-        public static double[] ShuttleSolve(Matrix matrix, double[] bVector)
+        public static float[] ShuttleSolve(Matrix matrix, float[] bVector)
         {
-            double[] res = new double[matrix.Rows];
+            float[] res = new float[matrix.Rows];
             Matrix buffer = (Matrix)matrix.Clone();
-            double[] bufVector = (double[])bVector.Clone();
+            float[] bufVector = (float[])bVector.Clone();
             //if (!MatrixConverter.Tridiagonal.IsTridiagonal(buffer))
                 //throw new ArgumentException("Матрица не трехдиагональная!");
             int n = buffer.Rows;
-            double[] a = new double[n];
-            double[] b = new double[n];
+            float[] a = new float[n];
+            float[] b = new float[n];
             a[0] = 0;
             b[0] = 0;
             for (int i = 1; i < n; i++)
@@ -24,7 +24,7 @@
 
                 buffer[i, i] = matrix[i, i] - matrix[i, i - 1] * a[i];
                 bufVector[i] = bVector[i] - matrix[i, i - 1] * b[i];
-                buffer[i, i - 1] = 0.0;
+                buffer[i, i - 1] = 0.0f;
             }
             res[n - 1] = bufVector[n - 1] / buffer[n - 1, n - 1];
             while (n > 1)
@@ -40,17 +40,17 @@
             int cols = matrix.values.GetLength(1);
             for (int i = 0; i < cols; i++)
             {
-                double temp = matrix[row1, i];
+                float temp = matrix[row1, i];
                 matrix[row1, i] = matrix[row2, i];
                 matrix[row2, i] = temp;
             }
         }
 
-        public static double[,] AddVectorToMatrix(Matrix matrix, double[] vector)
+        public static float[,] AddVectorToMatrix(Matrix matrix, float[] vector)
         {
             int rows = matrix.values.GetLength(0);
             int cols = matrix.values.GetLength(1);
-            double[,] result = new double[rows, cols + 1];
+            float[,] result = new float[rows, cols + 1];
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
@@ -63,7 +63,7 @@
         }
 
 
-        public static double[] GaussWithoutMainElement(Matrix matrix, double[] vector)
+        public static float[] GaussWithoutMainElement(Matrix matrix, float[] vector)
         {
             Matrix fullMatrix = new Matrix(AddVectorToMatrix(matrix, vector));
             int rows = fullMatrix.values.GetLength(0);
@@ -86,7 +86,7 @@
 
                 for (int j = i + 1; j < rows; j++)
                 {
-                    double factor = fullMatrix[j, i] / fullMatrix[i, i];
+                    float factor = fullMatrix[j, i] / fullMatrix[i, i];
                     for (int k = i; k < cols; k++)
                     {
                         fullMatrix[j, k] -= factor * fullMatrix[i, k];
@@ -94,10 +94,10 @@
                 }
             }
 
-            double[] solution = new double[rows];
+            float[] solution = new float[rows];
             for (int i = rows - 1; i >= 0; i--)
             {
-                double sum = 0;
+                float sum = 0;
                 for (int j = i + 1; j < cols - 1; j++)
                 {
                     sum += fullMatrix[i, j] * solution[j];
@@ -107,7 +107,7 @@
             return solution;
         }
 
-        public static double[] GaussWithMainElement(Matrix matrix, double[] vector)
+        public static float[] GaussWithMainElement(Matrix matrix, float[] vector)
         {
             Matrix fullMatrix = new Matrix(AddVectorToMatrix(matrix, vector));
             int rows = fullMatrix.values.GetLength(0);
@@ -116,11 +116,11 @@
             for (int i = 0; i < rows; i++)
             {
                 int maxRow = i;
-                double maxVal = Math.Abs(fullMatrix[i, i]);
+                float maxVal = Math.Abs(fullMatrix[i, i]);
 
                 for (int j = i + 1; j < rows; j++)
                 {
-                    double absVal = Math.Abs(fullMatrix[j, i]);
+                    float absVal = Math.Abs(fullMatrix[j, i]);
                     if (absVal > maxVal)
                     {
                         maxVal = absVal;
@@ -135,7 +135,7 @@
 
                 for (int j = i + 1; j < rows; j++)
                 {
-                    double factor = fullMatrix[j, i] / fullMatrix[i, i];
+                    float factor = fullMatrix[j, i] / fullMatrix[i, i];
                     for (int k = i; k < cols; k++)
                     {
                         fullMatrix[j, k] -= factor * fullMatrix[i, k];
@@ -143,10 +143,10 @@
                 }
             }
 
-            double[] solution = new double[rows];
+            float[] solution = new float[rows];
             for (int i = rows - 1; i >= 0; i--)
             {
-                double sum = 0;
+                float sum = 0;
                 for (int j = i + 1; j < cols - 1; j++)
                 {
                     sum += fullMatrix[i, j] * solution[j];
